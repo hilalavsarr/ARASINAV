@@ -1,0 +1,64 @@
+---
+title: "Ev Fiyat Tahmini"
+author: 
+  - Hilal Avşar[^1]
+bibliography: ../bibliography/biblio.bib
+csl: ../csl/apa-tr.csl
+header-includes:
+  - \usepackage{polyglossia}
+  - \setmainlanguage{turkish}
+  - \usepackage{booktabs}
+  - \usepackage{caption} 
+  - \captionsetup[table]{skip=10pt}
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    fig_height: 3
+    fig_width: 4
+    keep_tex: no
+    latex_engine: xelatex
+    number_sections: yes
+    toc: no
+geometry: margin=1in
+link-citations: yes
+urlcolor: blue
+fontsize: 12pt
+biblio-style: apalike
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+<!-- ======================================================================= -->
+<!-- ============================== NOTLAR ================================= -->
+<!-- ======================================================================= -->
+[^1]: 20080259, [Github Repo](https://github.com/hilalavsarr/arasinav)
+
+# Giriş
+Ev fiyatları tahmini, gayrimenkul piyasasında önemli bir rol oynamaktadır. Emlak sektöründe, ev fiyatları tahmini, birçok farklı faktörü dikkate alarak bir evin değerini belirlemek için kullanılmaktadır. Bu faktörler arasında evin konumu, büyüklüğü, yaşına ve özelliklerine, konut piyasasının durumuna, faiz oranlarına, vergi politikalarına ve benzeri faktörlere bağlı olarak değişiklik gösterebilir.  Genelde emlak sektöründe çalışan ve tecrübe sahibi kişilerin sezgisel olarak yaptıkları tahminler yanında günümüzde ev özellikleri ve fiyatları hakkında bilginin özellikle internette olması nedeniyle artık daha bilimsel yöntemlerle ev fiyatı tahmini yapılabilmektedir.
+Ev fiyatları tahmini için birçok farklı model kullanılabilir. Bu modeller arasında en yaygın olanı regresyon analizidir. Regresyon analizi, ev fiyatlarındaki değişkenliği, büyüklük, bulunduğu kat, ısınma şekli, toplu ulaşıma yakınlık gibi ev özellikleri ile tahmin etmeye çalışır. Bu modelleme yöntemi, ev özellikleri, coğrafi faktörler ve ekonomik göstergeler gibi birçok değişkeni de kullanarak ev fiyatlarını tahmin etmek için kullanılabilir.  Regresyon tahminleri en temel regresyon yöntemi olan linear regresyondan daha gelişmiş makine öğrenmesi modellerine kadar birçok farklı metodla da yapılabilir.
+Ev fiyatları tahmini için kullanılan diğer bir modelleme yöntemi, yapay sinir ağıdır. Yapay sinir ağı, birçok farklı değişkeni kullanarak karmaşık bir model oluşturur ve bu modeli kullanarak ev fiyatlarını tahmin eder. Bu yöntem, regresyon analizine göre daha karmaşık olmasına rağmen, daha doğru sonuçlar verebilir çünki regresyon analizlerinde genelde değişkenlerin fazlalılığı nedeniyle göz ardı edilen etkileşimler yapay sinir ağları ile daha rahat çözümlenebilir.
+Ev fiyatları tahmini modelleme, gayrimenkul sektöründe büyük öneme sahip bir konudur. Regresyon analizi ve yapay sinir ağı gibi farklı modelleme yöntemleri kullanılarak ev fiyatları tahmini yapılabilir. Ancak, modelin doğruluğu için kullanılan verilerin kalitesi çok önemlidir
+
+
+## Çalışmanın Amacı
+Çalışmanın amacı, ev özellikleri verilen bir versietinde, bu özellikleri kullanarak ev fiyatını tahmin etmektir.  İstatistiksel yöntem olarak multipl lineer regresyon kullanılacaktır.  Veriseti Carnegie Mellon Universitesi'nden alınmıştır (boston).  Veriseti biri bağımlı, 13’ü bağımsız olmak üzere toplamda 14 değişken içermektedir.  Gözlem sayısı fazla olması nedeniyle 220 gözleme indirilmiştir.   
+
+## Literatür 
+Literatürde ev fiyatı tahmini üzerine kullanılan tekniklerin çeşitliliği nedeniyle birçok çalışma vardır.  Verisetinin çalışıldığı makalede havakirliliğinin ev fiyatlarını etkileyen önemli bir faktör olduğu bulunmuştur (harrison1978hedonic).  Bir başka çalışmada ise ev fiyat tahmininde en doğru sonucu veren metod araştırılmış ve gradient boosting metodunun lineer regresyon, lasso regresyon, ridge regresyon gibi metodlara göre daha doğru tahminde bulunduğu görülmüştür (madhuri2019house).  Ülkemizden yayınlanan iki çalışmada ise yapay sinir ağlarının ev fiyat tahmininde en doğru sonuçları verdikleri görülmüştür (Ozdemir2022-vc, yilmazel2018konut)       
+
+\newpage
+# Kaynakça {#references}
+
+The Boston housing dataset. Web sayfası: https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html Erişim tarihi: 14.04.2023
+
+Madhuri, C. R., Anuradha, G., & Pujitha, M. V. (2019, March). House price prediction using regression techniques: A comparative study. In 2019 International conference on smart structures and systems (ICSSS) (pp. 1-5). IEEE.
+
+Harrison Jr, D., & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. Journal of environmental economics and management, 5(1), 81-102.
+
+Ozdemi̇r, M., Yildiz, K., & Büyüktanir, B. (2022). Derin Öğrenme ile Konut Fiyat Tahminlemesi: Türkiye’deki Sakarya İli Üzerinde Bir Çalışma. Bilecik Şeyh Edebali Üniversitesi Fen Bilimleri Dergisi. 
+
+Afşar, A., Yılmazel, Ö., & Yılmazel, S. (2018). KONUT FİYAT TAHMİNİNDE YAPAY SİNİR AĞLARI YÖNTEMİNİN KULLANILMASI. Uluslararası İktisadi ve İdari İncelemeler Dergisi. 
+
+<div id="refs"></div>
+
